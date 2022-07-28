@@ -14,8 +14,6 @@ class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key, required String title, }) : super(key: key);
   
 
-
-
   @override
     Widget build(BuildContext context) {
       return Scaffold(
@@ -32,13 +30,10 @@ class MyHomePage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center, //Center Column contents vertically,
                           crossAxisAlignment: CrossAxisAlignment.center, //Center Column contents horizontally,
                           children: <Widget>[
-                            const Text(
-                              'Gambar Kucing.png',
-                              style : TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 12,
-                              )
+                            Container(
+                              padding: EdgeInsets.only(right: 30, left:30),
+                              child : Image.asset('assets/images/KucingFront.png')
+                             
                             )
                           ],
                         ),
@@ -75,7 +70,7 @@ class MyHomePage extends StatelessWidget {
                               style : TextStyle(
                                 color: Colors.black45,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 15,
+                                fontSize: 13,
                                                                 
                               )
                             )
