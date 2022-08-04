@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kucingpedia/list_page.dart';
+
+
 // import 'package:kucingpedia/detail_page.dart';
 final ButtonStyle flatButtonStyle = TextButton.styleFrom(
   primary: Colors.white,
@@ -70,7 +73,7 @@ class MyHomePage extends StatelessWidget {
                               style : TextStyle(
                                 color: Colors.black45,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 13,
+                                fontSize: 13  ,
                                                                 
                               )
                             )
@@ -86,7 +89,11 @@ class MyHomePage extends StatelessWidget {
                           children: <Widget>[
                             TextButton(
                               style: flatButtonStyle,
-                              onPressed: () { },
+                              onPressed: () { 
+                                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                  return ListScreen();
+                                }));
+                              },
                               child: Text('Masuk'),
                             )
 
