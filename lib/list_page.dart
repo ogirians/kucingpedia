@@ -63,6 +63,11 @@ class KucingGrid extends StatelessWidget {
               //   }));
               // },
               child : Card(
+                elevation: 0,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                ),
+                color: Colors.orange[50],
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -73,23 +78,91 @@ class KucingGrid extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 2),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: Text(
-                        kucing.nama,
-                        style: const TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                        ),
+                    Card(
+                      shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(30.0)),
                       ),
+                      elevation: 0,
+                      margin: EdgeInsets.zero,
+                      child: 
+                          Column(
+                            children: 
+                            [
+                              Row(
+                                children:
+                                [
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: 
+                                    [
+                                      Align(
+                                        alignment: Alignment.topRight,
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(left: 20.0, top: 10.0, bottom: 2.0),
+                                          child: 
+                                             Text(
+                                              kucing.nama,
+                                              style: const TextStyle(
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                              textAlign: TextAlign.left,
+                                            ),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment: Alignment.topLeft,
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(left: 20.0, top: 0.5, bottom: 2.0),
+                                          child: Text(
+                                            kucing.deskripsi,
+                                            style: const TextStyle(
+                                              fontSize: 12.0,
+                                              color : Colors.black38,
+                                            ),
+                                            textAlign: TextAlign.left,
+                                          ),
+                                        ),
+                                      ),
+                                    ]
+                                  ),
+                                  Expanded(
+                                    child: Container(
+                                      // color: Colors.green,
+                                      child: Column(
+                                        children: 
+                                        [
+                                        Align(
+                                          alignment: Alignment.topRight,
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(right: 20.0, top: 17.0, bottom: 10.0),
+                                            child: const FavoriteButton(),
+                                          ),
+                                        ),
+                                        ]
+                                      ),
+                                    ),
+                                  ),
+                                ]                              
+                              ),
+                              Align(
+                                alignment: Alignment.topLeft,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 20.0, top: 20.0, bottom: 10.0),
+                                  child: Text(
+                                    "Ciri :" + kucing.ciri,
+                                    style: const TextStyle(
+                                      fontSize: 12.0,
+                                      color : Colors.black38,
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ),
+                              ),
+                             
+                            ]
+                          ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0, bottom: 8.0),
-                      child: Text(
-                        kucing.deskripsi,
-                      ),
-                    ),
-
                   ],
                 )
               )  
@@ -97,6 +170,33 @@ class KucingGrid extends StatelessWidget {
           }).toList(),
         )     
       ) 
+    );
+  }
+}
+
+
+class FavoriteButton extends StatefulWidget {
+  const FavoriteButton({Key? key}) : super(key: key);
+
+  @override
+  _FavoriteButtonState createState() => _FavoriteButtonState();
+}
+
+class _FavoriteButtonState extends State<FavoriteButton> {
+  bool isFavorite = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(
+        isFavorite ? Icons.favorite : Icons.favorite_border,
+        color: Colors.black45,
+      ),
+      onPressed: () {
+        setState(() {
+          isFavorite = !isFavorite;
+        });
+      },
     );
   }
 }
