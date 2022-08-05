@@ -38,7 +38,7 @@ var kucingList = [
     jenis: 'bule',
     asal: 'rumah holang kayah.',
     ciri: 'oren, hitam, putih dll.',
-    deskripsi: 'suka ngerepotin babu',
+    deskripsi: 'suka ngerepotin babu suka ngerepotin babusuka ngerepotin babusuka ngerepotin babusuka ngerepotin babusuka ngerepotin babusuka ngerepotin babusuka ngerepotin babusuka ngerepotin babusuka ngerepotin babusuka ngerepotin babusuka ngerepotin babu suka ngerepotin babusuka ngerepotin babusuka ngerepotin babusuka ngerepotin babusuka ngerepotin babusuka ngerepotin babusuka ngerepotin babusuka ngerepotin babusuka ngerepotin babusuka ngerepotin babusuka ngerepotin babusuka ngerepotin babusuka ngerepotin babusuka ngerepotin babusuka ngerepotin babusuka ngerepotin babusuka ngerepotin babu',
     imageAsset: 'assets/images/cat04.png',
     imageUrls: [
       'https://media-cdn.tripadvisor.com/media/photo-s/0d/7c/59/70/farmhouse-lembang.jpg',
@@ -52,7 +52,7 @@ var kucingList = [
     jenis: 'blaster',
     asal: 'biasanya di rumah saudara ada minim satu',
     ciri: 'oren, hitam, putih dll.',
-    deskripsi: 'labil, kadang lucu.. kadang amit2',
+    deskripsi: 'labil, kadang lucu.. kadang amit2 labil, kadang lucu.. kadang amit2labil, kadang lucu.. kadang amit2labil, kadang lucu.. kadang amit2labil, kadang lucu.. kadang amit2labil, kadang lucu.. kadang amit2labil, kadang lucu.. kadang amit2labil, kadang lucu.. kadang amit2labil, kadang lucu.. kadang amit2labil, kadang lucu.. kadang amit2labil, kadang lucu.. kadang amit2',
     imageAsset: 'assets/images/cat05.png',
     imageUrls: [
       'https://media-cdn.tripadvisor.com/media/photo-s/0d/7c/59/70/farmhouse-lembang.jpg',

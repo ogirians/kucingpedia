@@ -23,12 +23,12 @@ class ListScreen extends StatelessWidget {
           ),
           body: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
-              if (constraints.maxWidth <= 600) {
+              if (constraints.maxWidth <= 320) {
+                return const KucingGridSmall(gridCount: 1);
+              } else if (constraints.maxWidth <= 900) {
                 return const KucingGrid(gridCount: 1);
-              } else if (constraints.maxWidth <= 1200) {
-                return const KucingGrid(gridCount: 4);
               } else {
-                return const KucingGrid(gridCount: 6);
+                return const KucingGridSmall(gridCount: 3);
               }
             },
           ),
@@ -103,6 +103,7 @@ class KucingGrid extends StatelessWidget {
                                                 style: const TextStyle(
                                                   fontSize: 20.0,
                                                   fontWeight: FontWeight.w500,
+                                                  overflow: TextOverflow.ellipsis
                                                 ),
                                                 textAlign: TextAlign.left,
                                               ),
@@ -120,6 +121,7 @@ class KucingGrid extends StatelessWidget {
                                                 style: const TextStyle(
                                                   fontSize: 12.0,
                                                   color: Colors.black38,
+                                                  overflow: TextOverflow.ellipsis
                                                 ),
                                                 textAlign: TextAlign.left,
                                               ),
@@ -156,6 +158,7 @@ class KucingGrid extends StatelessWidget {
                                       style: const TextStyle(
                                         fontSize: 12.0,
                                         color: Colors.black38,
+                                        overflow: TextOverflow.ellipsis
                                       ),
                                       textAlign: TextAlign.left,
                                     ),
@@ -165,6 +168,150 @@ class KucingGrid extends StatelessWidget {
                             ),
                           ],
                         )));
+              }).toList(),
+            )));
+  }
+}
+
+class KucingGridSmall extends StatelessWidget {
+  final int gridCount;
+
+  const KucingGridSmall({Key? key, required this.gridCount}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scrollbar(
+        isAlwaysShown: true,
+        child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: GridView.count(
+              crossAxisCount: gridCount,
+              crossAxisSpacing: 16,
+              mainAxisSpacing: 16,
+              children: kucingList.map((kucing) {
+                return InkWell(
+                    // onTap: () {
+                    //   Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    //     return ;
+                    //   }));
+                    // },
+                    child: Container(
+                      child: Card(
+                          margin: const EdgeInsets.only(bottom: 10.0),
+                          elevation: 0,
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                          ),
+                          color: Colors.orange[50],
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Expanded(
+                                flex:5,
+                                child: Image.asset(
+                                  kucing.imageAsset,
+                                  fit: BoxFit.scaleDown,
+                                ),
+                              ),
+                              const SizedBox(height: 2),
+                              Card(
+                                shape: const RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(30.0)),
+                                ),
+                                elevation: 0,
+                                margin: EdgeInsets.zero,
+                                child: Column(children: [
+                                  Wrap(children: [
+                                       Container(
+                                        // color: Colors.green,
+                                        child: Column(children: [
+                                          Align(
+                                            alignment: Alignment.center,
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 20,
+                                                  right: 20,
+                                                  top: 10.0,
+                                                  bottom: 5.0),
+                                              child: const FavoriteButton(),
+                                            ),
+                                          ),
+                                        ]),
+                                      ),
+                                      Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Align(
+                                              alignment: Alignment.center,
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    left: 20,
+                                                    right: 20,
+                                                    top: 10.0,
+                                                    bottom: 2.0),
+                                                child: FittedBox(
+                                                  fit: BoxFit.scaleDown,
+                                                  child: Text(
+                                                    kucing.nama,
+                                                    style: const TextStyle(
+                                                      fontSize: 20.0,
+                                                      fontWeight: FontWeight.w500,
+                                                      overflow: TextOverflow.ellipsis,
+                                                    ),
+                                                    textAlign: TextAlign.left,
+                                                  )
+                                                ),
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: Alignment.center,
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    left: 20,
+                                                    right: 20,
+                                                    top: 0.5,
+                                                    bottom: 2.0),
+                                                child: Text(
+                                                  kucing.deskripsi,
+                                                  style: const TextStyle(
+                                                    fontSize: 12.0,
+                                                    color: Colors.black38,
+                                                    overflow: TextOverflow.ellipsis,
+                                                  ),
+                                                  textAlign: TextAlign.left,
+                                                ),
+                                              ),
+                                            ),
+                                          ]),
+                                  ]),
+                                  Container(
+                                    // color: Colors.red,
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                             left: 20, right: 20, top: 10.0, bottom: 10.0),
+                                        child: Text(
+                                          "Ciri :" + kucing.ciri,
+                                          style: const TextStyle(
+                                            fontSize: 12.0,
+                                            color: Colors.black38,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                          textAlign: TextAlign.left,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ]),
+                              ),
+                            ],
+                          )
+                          )
+                    )
+                        );
               }).toList(),
             )));
   }
